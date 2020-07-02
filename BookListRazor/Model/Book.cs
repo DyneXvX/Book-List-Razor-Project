@@ -8,6 +8,13 @@ namespace BookListRazor.Model
         [Required] public string Name { get; set; }
         public string Author { get; set; }
 
+        public string ISBN { get; set; }
+        /*notes for adding to the database
+        * add-migration AddISBNToBookModel
+        * update-database
+        */
+
+
 
     }
 }
