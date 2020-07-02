@@ -1,9 +1,8 @@
-﻿using BookListRazor.Model;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using BookListRazor.Model;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookListRazor.Pages.BookList
 {
@@ -14,7 +13,7 @@ namespace BookListRazor.Pages.BookList
         public IndexModel(ApplicationDbContext db)
         {
             _db = db;
-        }//DataBase Connection
+        } //DataBase Connection
 
         public IEnumerable<Book> Books { get; set; }
         //Build the IEnumerable of Books
@@ -22,7 +21,8 @@ namespace BookListRazor.Pages.BookList
         public async Task OnGet()
         {
             Books = await _db.Book.ToListAsync();
-        }//get the list of books.
+        } //get the list of books.
+
         //Async let you run multiple tasks at a time till it is awaiting. 
     }
 }
