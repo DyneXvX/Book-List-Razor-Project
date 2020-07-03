@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookListRazor.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,5 +25,21 @@ namespace BookListRazor.Pages.BookList
         } //get the list of books.
 
         //Async let you run multiple tasks at a time till it is awaiting. 
+
+        public async Task<IActionResult> OnPostDelete(int id) //OnPostDelete is a custom asp handle that I created on Index.
+        {
+            var book = await _db.Book.FindAsync(id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _db.Book.Remove(book);
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage("Index");
+        }
     }
+
 }
