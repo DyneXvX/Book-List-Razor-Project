@@ -66,12 +66,12 @@
 
         </form>
     </div>
-    
+
     <div class="col-12" style="text-align: center">
-        <br />
+        <br/>
         <span class="h3 text-info">OR</span>
-        <br />
-        <br />
+        <br/>
+        <br/>
     </div>
     <div class="col-12 border p-3">
         <table id="DT_load" class="table table-striped table-bordered" style="width: 100%">
@@ -86,7 +86,34 @@
             </thead>
         </table>
     </div>
+    <div class="col-12" style="text-align: center">
+        <br/>
+        <span class="h3 text-info">OR - Justin's Version without all the BS copy and paste that was never explained.</span>
+        <br/>
+        <span class="h4 text-info">Ajax? Json? and API All of this was shoved in the end without teaching.</span>
+        <br/>
+        <br />
+    </div>
+        <div class="col-12 border p-3">
+            <table class="table table-striped">
+                <tr class="table-secondary">
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>@book.Name</td>
+                    <td>@book.Author</td>
+                    <td>@book.ISBN</td>
+                </tr>
+            }
+            </table>
+        </div>
+    
 </div>
+
 @section Scripts{
     <script src="~/js/bookList.js"></script>
-} 
+}
